@@ -53,10 +53,25 @@ public class Servidor {
     private static String processarOpcao(String opcao, Livros livro){
         switch (opcao) {
             case "1":
+                try {
+                    biblioteca.cadastrarLivro(livro);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 return "Livro cadastrado com sucesso!";
             case "2":
+                try {
+                    biblioteca.alugarLivro(livro.getTitulo());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 return "Livro alugado com sucesso!";
             case "3":
+                try {
+                    biblioteca.alugarLivro(livro.getTitulo());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 return "Livro devolvido com sucesso!";
             case "4":
                 return "Lista de Livros" + biblioteca.listarLivros();

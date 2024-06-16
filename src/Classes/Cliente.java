@@ -26,6 +26,13 @@ public class Cliente {
             }else if (opcao == "2" || opcao == "3") {
                 objectOutput.writeObject(alugarOuDevolverLivro());
             }
+
+            System.out.println("Resposta do servidor: " + in.readLine());
+
+            in.close();
+            out.close();
+            objectOutput.close();
+            socket.close();
         }catch(IOException e){
             e.printStackTrace();
         }
