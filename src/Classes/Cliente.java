@@ -5,9 +5,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Cliente {
-
     private static Scanner entrada = new Scanner(System.in);
-
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Socket socket = new Socket("127.0.0.1", 1254);
 
@@ -15,6 +13,7 @@ public class Cliente {
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
         String opcao = null;
+
         do {
             try {
                 for (int i = 0; i < 6; i++) {
@@ -38,11 +37,14 @@ public class Cliente {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         } while (!opcao.equals("5"));
+
         in.close();
         out.close();
         objectOutput.close();
         socket.close();
+
     }
 
     private static Livros cadastroLivro(){

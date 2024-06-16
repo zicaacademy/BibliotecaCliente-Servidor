@@ -24,7 +24,7 @@ public class Biblioteca {
             JsonNode rootNode = objectMapper.readTree(file);
             JsonNode livrosNode = rootNode.path("livros");
             livros = objectMapper.convertValue(livrosNode, new TypeReference<List<Livros>>() {});
-            System.out.println("Livros carregados com sucesso!" + livros);
+            System.out.println("Livros carregados com sucesso!");
         } else {
             System.out.println("Não foi possível carregar livros");
             livros = new ArrayList<>();
@@ -38,7 +38,6 @@ public class Biblioteca {
 
     public void cadastrarLivro(Livros livro) throws IOException {
         livros.add(livro);
-        System.out.println("Livros castrados: " + livros);
         salvarLivros();
     }
 

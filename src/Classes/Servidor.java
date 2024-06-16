@@ -36,6 +36,8 @@ public class Servidor {
                 return "Livro devolvido com sucesso!";
             case "4":
                 return "Lista de Livros" + biblioteca.listarLivros();
+            case "5":
+                return "Saindo...";
             default:
                 return "Opção invalida";
         }
@@ -45,7 +47,6 @@ public class Servidor {
         ServerSocket servidor = new ServerSocket(1254);
         System.out.println("Servidor conectado na porta 1254");
         System.out.println("Aguardando clientes de servidor...");
-
 
         while (true) {
             try(Socket cliente = servidor.accept();
