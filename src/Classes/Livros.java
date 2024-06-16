@@ -10,9 +10,10 @@ public class Livros implements Serializable {
     private String autor;
     @JsonProperty("genero")
     private String genero;
-    @JsonProperty("numeroDeExemplares")
+    @JsonProperty("exemplares")
     private int numeroDeExemplares;
 
+    public Livros() {}
     public Livros(String titulo, String autor, String genero, int numeroDeExemplares) {
         this.titulo = titulo;
         this.autor = autor;
@@ -54,12 +55,8 @@ public class Livros implements Serializable {
 
     @Override
     public String toString() {
-        return "Livro{" +
-                "titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", genero='" + genero + '\'' +
-                ", numeroDeExemplares=" + numeroDeExemplares +
-                '}';
+        return String.format("Livro{titulo='%s', autor='%s', genero='%s', exemplares=%d}\n",
+                titulo, autor, genero, numeroDeExemplares);
     }
 }
 
