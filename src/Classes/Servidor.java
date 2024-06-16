@@ -5,6 +5,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Servidor {
+    private static Biblioteca biblioteca;
+
+    public Servidor(Biblioteca biblioteca) throws IOException {
+        this.biblioteca = new Biblioteca();
+    }
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         ServerSocket servidor = new ServerSocket(5000);
@@ -53,7 +59,7 @@ public class Servidor {
             case "3":
                 return "Livro devolvido com sucesso!";
             case "4":
-                return "Lista de Livros";
+                return "Lista de Livros" + biblioteca.listarLivros();
             default:
                 return "Opção invalida";
         }

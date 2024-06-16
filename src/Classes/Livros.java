@@ -1,12 +1,16 @@
 package Classes;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Livros implements Serializable {
-
+    @JsonProperty("titulo")
     private String titulo;
+    @JsonProperty("autor")
     private String autor;
+    @JsonProperty("genero")
     private String genero;
+    @JsonProperty("numeroDeExemplares")
     private int numeroDeExemplares;
 
     public Livros(String titulo, String autor, String genero, int numeroDeExemplares) {
@@ -46,6 +50,16 @@ public class Livros implements Serializable {
 
     public void setNumeroDeExemplares(int numeroDeExemplares) {
         this.numeroDeExemplares = numeroDeExemplares;
+    }
+
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", genero='" + genero + '\'' +
+                ", numeroDeExemplares=" + numeroDeExemplares +
+                '}';
     }
 }
 
